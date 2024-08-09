@@ -1,0 +1,316 @@
+$primary-color:#f1ece9;
+$secondary-color:#FFDAC6;
+$tertiary-color:#BABD8D;
+$for-color:#FA9500;
+$primary-text-color:#7C6A0A;
+$font-stack:"IBM Plex Sans", sans-serif;
+
+$font-size-h1:3em;
+$font-size-p:1.5em;
+
+@mixin flexcenter($direction,$content,$aling){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $aling;
+
+}
+@mixin buttonstyle{
+    button{
+        background: none;
+        border-style: none;
+    }
+}
+
+body{
+    font-family: $font-stack;
+    background-color:$primary-color;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+div{
+    
+  /**border: black solid 1px;   */
+}
+nav {
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    color: $primary-text-color;
+
+    p{
+        font-size: $font-size-p;
+        padding-left: 30px;
+    }
+    .icons{
+        display: flex;
+        gap: 15px;
+
+        @include buttonstyle();
+        button {
+            
+            svg{
+                width: 36px;
+                height: 36px;
+                path{
+                    stroke: $primary-text-color;
+                }
+                
+            }
+        
+
+        }
+    }
+     
+}
+article {
+    color: $primary-text-color;
+    width: 100%;
+    
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    h1{
+        font-size:$font-size-h1 ;
+    }
+    p{
+        font-size: $font-size-p;
+    }
+    .impact-section{
+        padding-top: 15%;
+        padding-left: 15%;
+        width: 40%;
+        height: 70%;
+    }
+    button{
+        width: 12vw;
+        padding: 20px;
+        
+        border-style: none;
+        background-color:$for-color;
+        border-radius: 35px;
+        color: white;
+        font-size: 1em;
+    }
+    .image-section{
+        display: flex;
+        align-items: center;
+
+        
+        
+        img{
+            height: auto;
+            width: 30vw;
+            border-radius: 25px;
+        }
+    }
+
+}    
+
+section{
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    
+    
+    h2{
+        color: $primary-text-color;
+        font-size: 2em;
+        font-weight: 300;
+    }
+    .healthcare{
+        padding-bottom: 60px;
+        h2{
+            font-weight: 300;
+            padding-bottom: 60px;
+        }
+        .card-section{
+            display: flex;
+            width: auto;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            column-gap: 120px;
+            row-gap: 80px;
+            flex-wrap: wrap;
+            text-align: center;
+            
+        }
+        .product-card{
+            width: 21vw;
+            height: 39vw;
+            background-color: $secondary-color;
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+            border-radius: 12px;
+            .icon{
+                width: 90%;
+                height: auto;
+                display: flex;
+                justify-content: flex-end;
+                padding: 2px;
+                svg{
+                    width: 28px;
+                    height: 28px;
+                    path{ 
+                        stroke:#7C6A0A;
+                        stroke-width: 2;
+                    }
+                }
+                                 
+                
+            }
+            .product-image{
+                width: 84%;
+                height: 80%;
+                display: flex;
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                    background-image: cover;
+                    border-radius: 24px;
+                    
+    
+                }
+
+            }
+            h3{
+                
+                margin: 0;
+                margin-top: 6px;
+                color: $primary-text-color;
+                font-size: 1.4em;
+            }
+            p{
+                margin: 0;
+                margin-bottom: 9px;
+                color: $primary-text-color;
+                font-size: 1.17em;
+            }
+            
+        }
+       
+    }
+    .forniture{
+        @extend .healthcare;
+        .product-card{
+            background-color: $tertiary-color;
+            .icon{
+                svg{
+                    path{
+                        stroke: white;
+                    }
+                }
+            }
+            h3{
+                color: white;
+            }
+            p{
+                
+                color: white;
+                font-size: 1.17em;
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+.about-us{
+    padding-bottom: 60px;
+    h2{
+        padding-bottom: 60px;
+    }
+    .mission-section{
+        @include flexcenter(row,space-evenly ,center );
+        
+        .earth{
+            display: flex;
+            gap: 40px;
+            width: 30vw;
+            color:#E86424;
+            font-size: 1.5em;
+            font-weight: 300;
+            img{
+                object-fit: contain;
+            }
+        }
+        .innovation{
+            @extend .earth
+        }
+    }
+    
+}
+
+.galery{
+    padding-bottom: 60px;
+    h2{
+        padding-bottom: 60px;
+    }
+  
+    .images-galery {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        img{
+        width: 28vw;
+        height: 45vw;
+        object-fit: cover;
+        border-radius: 15px;
+        &:hover{
+            transform: scale(1.3);
+        }
+        }
+   } 
+}
+
+.location{
+    
+    .map{
+        @include flexcenter(row,center ,center );
+        padding-bottom: 30px;
+    }
+    h3{
+        text-align: center;
+        padding-bottom: 0;
+        color: #E86424;
+        font-size: 1.6em;
+    }
+    p{
+        text-align: center;
+        color: #E86424;
+        font-size: 1.2em;
+    }
+}
+
+
+
+
+
+
+
+footer{
+    color: white;
+    font-size: 1.5em;
+    
+    background-color: $for-color;
+    width: 100%;
+    height: auto;
+    padding: 60px;
+    .social-media{
+        @include flexcenter(row,center,center );
+        gap: 15px;
+    }
+    
+}
+
